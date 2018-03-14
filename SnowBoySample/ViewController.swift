@@ -15,7 +15,10 @@ class ViewController: UIViewController, EZMicrophoneDelegate {
     @IBOutlet weak var mLabel: UILabel!
     @IBOutlet weak var mButton: UIButton!
     
+    let RESOURCE = Bundle.main.path(forResource: "common", ofType: "res")
+    let MODEL = Bundle.main.path(forResource: "alexa_02092017", ofType: "umdl")
     var microphone: EZMicrophone!
+    var wrapper: SnowboyWrapper!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +49,11 @@ class ViewController: UIViewController, EZMicrophoneDelegate {
     
     //  Converted to Swift 4 by Swiftify v4.1.6640 - https://objectivec2swift.com/
     func initSnowboy() {
+        wrapper = SnowboyWrapper(resources: RESOURCE, modelStr: MODEL)
+        wrapper.setSensitivity("0.5")
+        wrapper.setAudioGain(1.0)
+        print("Sample rate: \(wrapper?.sampleRate()); channels: \(wrapper?.numChannels()); bits: \(wrapper?.bitsPerSample())")
+        
 //        snowboyDetect = nil
 //        snowboyDetect = new
 //        string
@@ -78,15 +86,18 @@ class ViewController: UIViewController, EZMicrophoneDelegate {
         DispatchQueue.main.async(execute: {() -> Void in
             print("received bufferSize", bufferSize)
             self.mLabel.text = "received bufferSize \(bufferSize)"
+//            let result: Int = wrapper.runDetection(buffer, length: bufferSize)
 //            let result: Int = snowboyDetect.runDetection(buffer[0], bufferSize)
 //            if result == 1 {
 //                print("Hotword Detected")
 //            }
         })
     }
+}
 
-    
-
-
+extension Data {
+    func castToCPointer<T>() -> T {
+        return self.withUnsafeBytes { $0.pointee }
+    }
 }
 
