@@ -12,6 +12,12 @@
 		0026A4552059AEB3001136FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0026A4532059AEB3001136FB /* Main.storyboard */; };
 		0026A4572059AEB3001136FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0026A4562059AEB3001136FB /* Assets.xcassets */; };
 		0026A45A2059AEB3001136FB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0026A4582059AEB3001136FB /* LaunchScreen.storyboard */; };
+		0090CE732059CBBF008CD102 /* alexa_02092017.umdl in Resources */ = {isa = PBXBuildFile; fileRef = 0090CE6E2059CBBE008CD102 /* alexa_02092017.umdl */; };
+		0090CE742059CBBF008CD102 /* common.res in Resources */ = {isa = PBXBuildFile; fileRef = 0090CE712059CBBF008CD102 /* common.res */; };
+		0090CE752059CBBF008CD102 /* SnowboyWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0090CE722059CBBF008CD102 /* SnowboyWrapper.mm */; };
+		0090CE772059CD66008CD102 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0090CE762059CD66008CD102 /* Accelerate.framework */; };
+		0090CE792059CDEB008CD102 /* libsnowboy-detect.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0090CE782059CDEB008CD102 /* libsnowboy-detect.a */; };
+		26F0FFC194E936D91DAC2B1A /* Pods_SnowBoySample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B9B53820794429DD3765E45 /* Pods_SnowBoySample.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +28,17 @@
 		0026A4562059AEB3001136FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0026A4592059AEB3001136FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0026A45B2059AEB3001136FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0026A4612059B676001136FB /* SnowBoySample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SnowBoySample-Bridging-Header.h"; sourceTree = "<group>"; };
+		0090CE6E2059CBBE008CD102 /* alexa_02092017.umdl */ = {isa = PBXFileReference; lastKnownFileType = file; path = alexa_02092017.umdl; sourceTree = "<group>"; };
+		0090CE6F2059CBBE008CD102 /* snowboy-detect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "snowboy-detect.h"; sourceTree = "<group>"; };
+		0090CE702059CBBE008CD102 /* SnowboyWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnowboyWrapper.h; sourceTree = "<group>"; };
+		0090CE712059CBBF008CD102 /* common.res */ = {isa = PBXFileReference; lastKnownFileType = file; path = common.res; sourceTree = "<group>"; };
+		0090CE722059CBBF008CD102 /* SnowboyWrapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SnowboyWrapper.mm; sourceTree = "<group>"; };
+		0090CE762059CD66008CD102 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		0090CE782059CDEB008CD102 /* libsnowboy-detect.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libsnowboy-detect.a"; sourceTree = "<group>"; };
+		0D927DDDA190E46A94F31DDE /* Pods-SnowBoySample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SnowBoySample.release.xcconfig"; path = "Pods/Target Support Files/Pods-SnowBoySample/Pods-SnowBoySample.release.xcconfig"; sourceTree = "<group>"; };
+		4B9B53820794429DD3765E45 /* Pods_SnowBoySample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SnowBoySample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5D44AB6877AAC5051A7A2E4 /* Pods-SnowBoySample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SnowBoySample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SnowBoySample/Pods-SnowBoySample.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +46,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0090CE792059CDEB008CD102 /* libsnowboy-detect.a in Frameworks */,
+				0090CE772059CD66008CD102 /* Accelerate.framework in Frameworks */,
+				26F0FFC194E936D91DAC2B1A /* Pods_SnowBoySample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +60,9 @@
 			children = (
 				0026A44E2059AEB3001136FB /* SnowBoySample */,
 				0026A44D2059AEB3001136FB /* Products */,
+				0026A4612059B676001136FB /* SnowBoySample-Bridging-Header.h */,
+				F959884D6314A4DBEB01E51C /* Pods */,
+				0EE0C6858E3FBC1E4282D91A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,6 +77,11 @@
 		0026A44E2059AEB3001136FB /* SnowBoySample */ = {
 			isa = PBXGroup;
 			children = (
+				0090CE6E2059CBBE008CD102 /* alexa_02092017.umdl */,
+				0090CE712059CBBF008CD102 /* common.res */,
+				0090CE6F2059CBBE008CD102 /* snowboy-detect.h */,
+				0090CE702059CBBE008CD102 /* SnowboyWrapper.h */,
+				0090CE722059CBBF008CD102 /* SnowboyWrapper.mm */,
 				0026A44F2059AEB3001136FB /* AppDelegate.swift */,
 				0026A4512059AEB3001136FB /* ViewController.swift */,
 				0026A4532059AEB3001136FB /* Main.storyboard */,
@@ -64,6 +92,25 @@
 			path = SnowBoySample;
 			sourceTree = "<group>";
 		};
+		0EE0C6858E3FBC1E4282D91A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0090CE782059CDEB008CD102 /* libsnowboy-detect.a */,
+				0090CE762059CD66008CD102 /* Accelerate.framework */,
+				4B9B53820794429DD3765E45 /* Pods_SnowBoySample.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F959884D6314A4DBEB01E51C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E5D44AB6877AAC5051A7A2E4 /* Pods-SnowBoySample.debug.xcconfig */,
+				0D927DDDA190E46A94F31DDE /* Pods-SnowBoySample.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +118,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0026A45E2059AEB3001136FB /* Build configuration list for PBXNativeTarget "SnowBoySample" */;
 			buildPhases = (
+				56E698B825DF063D5ECBB201 /* [CP] Check Pods Manifest.lock */,
 				0026A4482059AEB3001136FB /* Sources */,
 				0026A4492059AEB3001136FB /* Frameworks */,
 				0026A44A2059AEB3001136FB /* Resources */,
+				7450C6C20411BABA16F35185 /* [CP] Embed Pods Frameworks */,
+				0297B2DEF76C2E0A49DC94FE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -96,6 +146,7 @@
 				TargetAttributes = {
 					0026A44B2059AEB3001136FB = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -125,17 +176,78 @@
 			files = (
 				0026A45A2059AEB3001136FB /* LaunchScreen.storyboard in Resources */,
 				0026A4572059AEB3001136FB /* Assets.xcassets in Resources */,
+				0090CE732059CBBF008CD102 /* alexa_02092017.umdl in Resources */,
 				0026A4552059AEB3001136FB /* Main.storyboard in Resources */,
+				0090CE742059CBBF008CD102 /* common.res in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0297B2DEF76C2E0A49DC94FE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SnowBoySample/Pods-SnowBoySample-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		56E698B825DF063D5ECBB201 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SnowBoySample-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7450C6C20411BABA16F35185 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SnowBoySample/Pods-SnowBoySample-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/EZAudio/EZAudio.framework",
+				"${BUILT_PRODUCTS_DIR}/TPCircularBuffer/TPCircularBuffer.framework",
+				"${BUILT_PRODUCTS_DIR}/Toaster/Toaster.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EZAudio.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TPCircularBuffer.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toaster.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SnowBoySample/Pods-SnowBoySample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0026A4482059AEB3001136FB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0090CE752059CBBF008CD102 /* SnowboyWrapper.mm in Sources */,
 				0026A4522059AEB3001136FB /* ViewController.swift in Sources */,
 				0026A4502059AEB3001136FB /* AppDelegate.swift in Sources */,
 			);
@@ -272,13 +384,23 @@
 		};
 		0026A45F2059AEB3001136FB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E5D44AB6877AAC5051A7A2E4 /* Pods-SnowBoySample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9KKBG43HU7;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = SnowBoySample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ojiofong.SnowBoySample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SnowBoySample-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -286,13 +408,22 @@
 		};
 		0026A4602059AEB3001136FB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0D927DDDA190E46A94F31DDE /* Pods-SnowBoySample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9KKBG43HU7;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = SnowBoySample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ojiofong.SnowBoySample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SnowBoySample-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

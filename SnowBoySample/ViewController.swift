@@ -7,18 +7,85 @@
 //
 
 import UIKit
+import Toaster
+import EZAudio
 
-class ViewController: UIViewController {
-
+class ViewController: UIViewController, EZMicrophoneDelegate {
+    
+    @IBOutlet weak var mLabel: UILabel!
+    @IBOutlet weak var mButton: UIButton!
+    
+    var microphone: EZMicrophone!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        initPermissions()
+        initSnowboy() // TODO not ready
+//        initMic()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func onTapButton(_ sender: UIButton) {
+        doStuff()
     }
+    
+    func doStuff() {
+        Toast.init(text: "Doing stuff!!").show()
+        if microphone == nil {
+            initMic()
+        }else{
+            microphone.stopFetchingAudio()
+            self.mLabel?.text = "Stopped"
+        }
+    }
+    
+    func initPermissions() {
+        AVCaptureDevice.requestAccess(for: .audio) { success in
+            
+        }
+    }
+    
+    //  Converted to Swift 4 by Swiftify v4.1.6640 - https://objectivec2swift.com/
+    func initSnowboy() {
+//        snowboyDetect = nil
+//        snowboyDetect = new
+//        string
+//        (Bundle.main.path(forResource: "alexa", ofType: "umdl")?.utf8CString)
+//        snowboyDetect.setSensitivity("0.5")
+//        snowboyDetect.setAudioGain(1.0)
+    }
+    
+    func initMic() {
+        var audioStreamBasicDescription: AudioStreamBasicDescription = EZAudioUtilities.monoFloatFormat(withSampleRate: 16000)
+        audioStreamBasicDescription.mFormatID = kAudioFormatLinearPCM
+        audioStreamBasicDescription.mSampleRate = Float64(16000)
+        audioStreamBasicDescription.mFramesPerPacket = 1
+        audioStreamBasicDescription.mBytesPerPacket = 2
+        audioStreamBasicDescription.mBytesPerFrame = 2
+        audioStreamBasicDescription.mChannelsPerFrame = 1
+        audioStreamBasicDescription.mBitsPerChannel = 16
+        audioStreamBasicDescription.mFormatFlags = kAudioFormatFlagIsSignedInteger | kAudioFormatFlagsNativeEndian | kAudioFormatFlagIsPacked
+        audioStreamBasicDescription.mReserved = 0
+        if let inputs = EZAudioDevice.inputDevices() {
+            if let currentInput = EZAudioDevice.currentInput(){
+                microphone = EZMicrophone(delegate: self, with: audioStreamBasicDescription)
+                microphone.device = currentInput
+                microphone.startFetchingAudio()
+            }
+        }
+    }
+    
+    func microphone(_ microphone: EZMicrophone!, hasAudioReceived buffer: UnsafeMutablePointer<UnsafeMutablePointer<Float>?>!, withBufferSize bufferSize: UInt32, withNumberOfChannels numberOfChannels: UInt32) {
+        DispatchQueue.main.async(execute: {() -> Void in
+            print("received bufferSize", bufferSize)
+            self.mLabel.text = "received bufferSize \(bufferSize)"
+//            let result: Int = snowboyDetect.runDetection(buffer[0], bufferSize)
+//            if result == 1 {
+//                print("Hotword Detected")
+//            }
+        })
+    }
+
+    
 
 
 }
