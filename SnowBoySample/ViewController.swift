@@ -23,8 +23,7 @@ class ViewController: UIViewController, EZMicrophoneDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         initPermissions()
-        initSnowboy() // TODO not ready
-//        initMic()
+        initSnowboy()
     }
 
     @IBAction func onTapButton(_ sender: UIButton) {
@@ -43,7 +42,7 @@ class ViewController: UIViewController, EZMicrophoneDelegate {
     
     func initPermissions() {
         AVCaptureDevice.requestAccess(for: .audio) { success in
-            
+            Toast.init(text: "Request Audio success \(success)").show()
         }
     }
     
@@ -53,13 +52,6 @@ class ViewController: UIViewController, EZMicrophoneDelegate {
         wrapper.setSensitivity("0.5")
         wrapper.setAudioGain(1.0)
         print("Sample rate: \(wrapper?.sampleRate()); channels: \(wrapper?.numChannels()); bits: \(wrapper?.bitsPerSample())")
-        
-//        snowboyDetect = nil
-//        snowboyDetect = new
-//        string
-//        (Bundle.main.path(forResource: "alexa", ofType: "umdl")?.utf8CString)
-//        snowboyDetect.setSensitivity("0.5")
-//        snowboyDetect.setAudioGain(1.0)
     }
     
     func initMic() {
@@ -73,12 +65,10 @@ class ViewController: UIViewController, EZMicrophoneDelegate {
         audioStreamBasicDescription.mBitsPerChannel = 16
         audioStreamBasicDescription.mFormatFlags = kAudioFormatFlagIsSignedInteger | kAudioFormatFlagsNativeEndian | kAudioFormatFlagIsPacked
         audioStreamBasicDescription.mReserved = 0
-        if let inputs = EZAudioDevice.inputDevices() {
-            if let currentInput = EZAudioDevice.currentInput(){
-                microphone = EZMicrophone(delegate: self, with: audioStreamBasicDescription)
-                microphone.device = currentInput
-                microphone.startFetchingAudio()
-            }
+        if let currentInput = EZAudioDevice.currentInput(){
+            microphone = EZMicrophone(delegate: self, with: audioStreamBasicDescription)
+            microphone.device = currentInput
+            microphone.startFetchingAudio()
         }
     }
     
@@ -86,11 +76,17 @@ class ViewController: UIViewController, EZMicrophoneDelegate {
         DispatchQueue.main.async(execute: {() -> Void in
             print("received bufferSize", bufferSize)
             self.mLabel.text = "received bufferSize \(bufferSize)"
-//            let result: Int = wrapper.runDetection(buffer, length: bufferSize)
-//            let result: Int = snowboyDetect.runDetection(buffer[0], bufferSize)
-//            if result == 1 {
-//                print("Hotword Detected")
-//            }
+            
+            let pointer = buffer.pointee
+            let arr = Array(UnsafeBufferPointer(start: pointer, count: Int(bufferSize)))
+            let result: Int = Int(self.wrapper.runDetection(arr, length: Int32(bufferSize)))
+            if result == 1 {
+                print("Hotword Detected")
+                Toast.init(text: "Hotword Detected").show()
+            }else{
+                print("result", result)
+            }
+            
         })
     }
 }
